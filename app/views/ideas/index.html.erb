@@ -1,0 +1,17 @@
+<h1>Listing ideas</h1>
+
+<% @ideas.each do |idea| %>
+  <div class="idea-container">
+    <div class="image-container">
+      <%= image_tag(idea.picture_url, :width => 250, :height => 400) if idea.picture.present? %>
+    </div>
+    Name : <%= idea.name %><br>
+    Description : <%= idea.desciprtion %><br>
+    <%= link_to 'Show', idea %> | <td><%= link_to 'Edit', edit_idea_path(idea) %></td> | <%= link_to 'Destroy', idea, confirm: 'Are you sure?', method: :delete %>
+  </div> 
+<% end %>
+<div class="clear"></div>
+<br>
+<br>
+
+<%= link_to 'New Idea', new_idea_path %>
